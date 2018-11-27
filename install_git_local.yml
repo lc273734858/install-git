@@ -1,0 +1,8 @@
+- name: run the playbook tasks on the localhost
+  hosts: 127.0.0.1
+  connection: local
+  become: yes
+  vars:
+    dotnetveresion: aspnetcore-runtime-2.1
+  roles:
+    - install_git_29

@@ -1,0 +1,25 @@
+- name: remove git
+  yum: name=git state=absent
+- name: Install Software
+  yum: name={{ item }} state=latest
+  with_items:
+    - gcc
+    - openssl-devel
+    - libcurl-dev
+    - libcurl-devel
+    - zlib-devel
+    - expat-devel.x86_64
+    - perl-ExtUtils-MakeMaker
+    - package
+- name: mkdir
+  shell: mkdir -p {{ gitpath }}
+- name: Copy v2.9.2.tar.gz
+  copy: src=v2.9.2.tar.gz dest={{ gitpath }}/v2.9.2.tar.gz owner=root group=root
+- name: Uncompression vstsagent.tar.gz
+  shell: tar -zxvf {{ gitpath }}/v2.9.2.tar.gz -C {{ gitpath }}/
+- name: git all
+  shell: cd {{ gitpath }}/git-2.9.2;make prefix=/usr/local/software/git all;
+- name: git install
+  shell: cd {{ gitpath }}/git-2.9.2;make prefix=/usr/local/software/git install
+- name: source /etc/bashrc
+  shell: echo "export PATH=$PATH:/usr/local/software/git/bin" >> /etc/bashrc;source /etc/bashrc

@@ -5,7 +5,7 @@
   with_items:
     - gcc
     - openssl-devel
-    - libcurl-dev
+    #    - libcurl-dev
     - libcurl-devel
     - zlib-devel
     - expat-devel.x86_64

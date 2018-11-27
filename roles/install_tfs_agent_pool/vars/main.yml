@@ -3,4 +3,4 @@ tfspath: /app/tfspool
 pool: centos
 filename: vsts-agent2.136.tar.gz
 projectname: TFS-Manage
-groupname: Test-CentOS
+#groupname: Test-CentOS

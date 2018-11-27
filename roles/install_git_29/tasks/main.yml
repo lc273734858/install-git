@@ -10,7 +10,7 @@
     - zlib-devel
     - expat-devel.x86_64
     - perl-ExtUtils-MakeMaker
-    - package
+#    - package
 - name: mkdir
   shell: mkdir -p {{ gitpath }}
 - name: Copy v2.9.2.tar.gz

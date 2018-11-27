@@ -4,7 +4,7 @@
   shell: rpm -Uvh https://packages.microsoft.com/config/rhel/7/packages-microsoft-prod.rpm
   ignore_errors: yes
 - name: yum update
-  shell: yum -y update
+  shell: yum -y update --skip-broken
   poll: 10
 - name: install dotnet core
   shell: yum -y install {{ dotnetveresion }}

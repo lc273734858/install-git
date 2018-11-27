@@ -1,0 +1,15 @@
+  - name: Install Software
+    yum: name={{ item }} state=latest
+    with_items:
+      - libunwind
+      - unzip
+  - name: mkdir
+    shell: mkdir -p {{ tfspath }}
+  - name: Copy vstsagent.tar.gz
+    copy: src={{ filename }} dest={{ tfspath }}/vstsagent.tar.gz owner=root group=root    
+  - name: Uncompression vstsagent.tar.gz
+    shell: tar -zxvf {{ tfspath }}/vstsagent.tar.gz -C {{ tfspath }}/
+  # - name: mv vstsagent.tar.gz
+  #   shell: mv {{ tfspath }}/tfsagent/* {{ tfspath }}/
+  - name: regist in tfs
+    shell: cd '{{ tfspath }}/tfsagent';./config.sh --unattended --deploymentgroup --deploymentgroupname '{{ groupname }}' --addDeploymentGroupTags --deploymentGroupTags 'Web' --acceptteeeula --agent {{ ansible_default_ipv4.address }} --url {{ tfsurl }} --work _work --collectionname 'DefaultCollection' --projectname '{{ projectname }}' --auth pat --token {{ token }} --runasservice; sudo ./svc.sh install; sudo ./svc.sh start

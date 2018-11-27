@@ -1,0 +1,15 @@
+- name: run the playbook tasks on the localhost
+  hosts: 127.0.0.1
+  connection: local
+  become: yes
+  vars:
+    dotnetveresion: aspnetcore-runtime-2.1
+  vars_prompt:
+    - name: 'token'
+      prompt: 'token'
+      private: yes
+  roles:
+    - install_git_29
+    - install_supervisor
+    - install_dotnetcore
+    - install_tfs_agent_pool

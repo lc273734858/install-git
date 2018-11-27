@@ -1,0 +1,19 @@
+- name: Install Software
+  yum: name={{ item }} state=latest
+  with_items:
+    - python-setuptools
+- name: install supervisor
+  shell: easy_install supervisor ##pip install supervisor
+- name: create supervisor dir
+  shell: mkdir -p /etc/supervisor;mkdir -p /app/supervisor;
+# echo_supervisord_conf > /etc/supervisor/supervisord.conf;echo -e "[include]\nfiles = /app/supervisor/*.conf" >> /etc/supervisor/supervisord.conf
+- name: Copy supervisord.conf
+  copy: src=supervisord.conf dest=/etc/supervisor/supervisord.conf owner=root group=root
+- name: create supervisor.sock
+  shell: touch /var/run/supervisor.sock
+- name: chmod
+  shell: chmod 777 /run;chmod 777 /var/log;chmod 777 /var/run/supervisor.sock
+- name: copy  to /usr/lib/systemd/system/supervisord.service
+  copy: src=supervisord.service dest=/usr/lib/systemd/system/supervisord.service owner=root group=root
+- name: start supervisor
+  shell: systemctl enable supervisord.service;systemctl start supervisord.service

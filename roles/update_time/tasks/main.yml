@@ -1,0 +1,12 @@
+  - name: Install Software
+    yum: name={{ item }} state=latest
+    with_items:
+      - ntp
+  - name: yum-config-manager
+    shell: ntpdate asia.pool.ntp.org
+  # - name: install docker-ce
+  #   shell: yum makecache fast;yum -y install docker-ce
+  # - name: service docker start
+  #   shell: service docker start
+  # - name: Install docker-compose
+  #   shell: pip install --upgrade pip;pip install docker-compose

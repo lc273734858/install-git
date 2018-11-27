@@ -1,2 +1,4 @@
-# install-git
-install git 2.9 with ansible
+```shell
+ansible Client -m command -a "free -m"
+ansible-playbook
+```

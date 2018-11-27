@@ -1,0 +1,4 @@
+tfsurl: http://tfs.ezrpro.com:6443
+token: jlp4adsmxywavco4dlpsb54sec3de42iucnr3xz6egb2hbliwfxa
+tfspath: /app/tfsagent
+pool: centos

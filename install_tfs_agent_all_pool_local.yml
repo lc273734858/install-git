@@ -11,6 +11,9 @@
     - name: 'groupname'
       prompt: 'groupname'
       private: yes
+    - name: 'tag'
+      prompt: 'tag'
+      private: yes
   roles:
     - install_git_29
     - install_supervisor

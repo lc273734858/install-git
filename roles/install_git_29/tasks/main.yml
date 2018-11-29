@@ -19,7 +19,7 @@
   shell: cd {{ gitpath }}/git-2.9.2;make prefix=/usr/local/software/git all;
 - name: git install
   shell: cd {{ gitpath }}/git-2.9.2;make prefix=/usr/local/software/git install
-- name: add source
-  shell: echo "export PATH=$PATH:/usr/local/software/git/bin" >> /etc/bashrc
-- name: source /etc/bashrc
-  shell: source /etc/bashrc
+- name: add source /etc/bashrc
+  shell: echo "export PATH=$PATH:/usr/local/software/git/bin" >> /etc/bashrc;source /etc/bashrc
+- name: add source /root/.bashrc
+  shell: echo "export PATH=$PATH:/usr/local/software/git/bin" >> /root/.bashrc;source /root/.bashrc

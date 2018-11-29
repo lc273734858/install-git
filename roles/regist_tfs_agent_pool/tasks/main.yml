@@ -1,0 +1,2 @@
+- name: regist in tfs
+  shell: cd '{{ tfspath }}/tfsagent';./config.sh --unattended --deploymentgroup --deploymentgroupname '{{ groupname }}' --addDeploymentGroupTags --deploymentGroupTags '{{tag}}' --acceptteeeula --agent '{{ ansible_default_ipv4.address }}-{{tag}}' --url {{ tfsurl }} --work _work --collectionname 'DefaultCollection' --projectname '{{ projectname }}' --auth pat --token {{ token }} --runasservice; sudo ./svc.sh install; sudo ./svc.sh start

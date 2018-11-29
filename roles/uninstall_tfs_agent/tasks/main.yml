@@ -1,0 +1,4 @@
+  - name: stop svc and uninstall
+    shell: cd '{{ tfspath }}';./svc.sh stop;./svc.sh uninstall
+  - name: remove registor
+    shell: cd '{{ tfspath }}';./config.sh remove --unattended --auth pat --token {{ token }} 

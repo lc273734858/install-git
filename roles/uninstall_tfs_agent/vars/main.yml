@@ -1,0 +1,3 @@
+tfsurl: https://tfs.ezrpro.com:6443
+tfspath: /app/tfspool/tfsagent
+pool: centos

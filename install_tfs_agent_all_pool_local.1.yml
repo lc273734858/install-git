@@ -19,3 +19,4 @@
     - install_supervisor
     - install_dotnetcore
     - install_tfs_agent_pool
+    - regist_tfs_agent_pool

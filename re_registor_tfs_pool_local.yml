@@ -1,0 +1,17 @@
+- name: run the playbook tasks on the localhost
+  hosts: 127.0.0.1
+  connection: local
+  become: yes
+  vars_prompt:
+    - name: 'token'
+      prompt: 'token'
+      private: false
+    - name: 'groupname'
+      prompt: 'groupname'
+      private: false
+    - name: 'tag'
+      prompt: 'tag'
+      private: false
+  roles:
+    - uninstall_tfs_agent
+    - regist_tfs_agent_pool

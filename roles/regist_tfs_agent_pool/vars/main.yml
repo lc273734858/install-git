@@ -1,0 +1,5 @@
+tfsurl: https://tfs.ezrpro.com:6443
+tfspath: /app/tfspool
+pool: centos
+projectname: TFS-Manage
+#groupname: Test-CentOS

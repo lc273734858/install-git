@@ -15,7 +15,7 @@
       prompt: 'tag'
       private: false
   roles:
-    - install_git_29
+    # - install_git_29
     - install_supervisor
     - install_dotnetcore
     - install_tfs_agent_pool
